@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.disableScroll{
+  overflow-y:hidden;
+  overflow-x:hidden;
+}

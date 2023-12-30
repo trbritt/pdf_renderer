@@ -123,7 +123,7 @@ function PdfRenderer({ pdfUrl }) {
                 animate={{ width: `${current_pbar_width}%` }}
             />
 
-            <div  initial="hidden" animate="show" className='flex py-20 justify-evenly backdrop-blur-3xl' ref={containerRef} id='pdf-viewer' onWheel={handleWheel}>
+            <div  initial="hidden" animate="show" className='flex py-20 justify-evenly backdrop-blur-3xl disableScroll' ref={containerRef} id='pdf-viewer' onWheel={handleWheel}>
                 <Document
                     file={pdfUrl}
                     ref={canvasRef}
@@ -148,18 +148,16 @@ function PdfRenderer({ pdfUrl }) {
             </div>
             <div className="justify-evenly flex">
                 <button className='bg-secondary rounded-xl w-1/6 shadow-xl' onClick={handlePrevPage}>Prev</button>
+                <div className="flex justify-center items-center">
+                    Page &emsp;<input
+                    ref={inputRef} className='rounded text-center inline-block w-[35px] h-[26px]'
+                    type ="text"
+                    onKeyDown={handleInputForm}
+                    defaultValue={pageLabels[0]}
+                /> &emsp; of &emsp;{Math.max(...pageLabels.filter(element => parseInt(element)))}
+                </div>
                 <button className='bg-secondary rounded-xl w-1/6 shadow-xl' onClick={handleNextPage}>Next</button>
             </div>
-            <div className="flex justify-center items-center">
-        
-                Page &emsp;<input
-                ref={inputRef} className='rounded text-center inline-block w-[35px] h-[26px]'
-                type ="text"
-                onKeyDown={handleInputForm}
-                defaultValue={pageLabels[0]}
-            /> &emsp; of &emsp;{Math.max(...pageLabels.filter(element => parseInt(element)))}
-            </div>
-
         </>
     );
 }
