@@ -212,6 +212,12 @@ function PdfRenderer({ pdfUrl }) {
           Next
         </button>
       </div>
+      <div className="position:absolute transform -translate-y-6">
+            <a href="/dissertation_draft.pdf" className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-xl w-1/4 shadow-xl">
+            &emsp;Download me instead!&emsp;
+            </a>
+
+    </div>
     </>
   );
 }
